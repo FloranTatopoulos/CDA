@@ -14,7 +14,22 @@ const App = () => {
     if (user) {
       setCurrentUser(user);
     }
+
+    EventBus.on("logout", () => {
+      logOut();
+    });
+
+    return () => {
+      EventBus.remove("logout");
+    };
+
   }, []);
+
+  const logOut = () => {
+    AuthService.logout();
+    setCurrentUser(undefined);
+  };
+  
   return ;
 }
 
