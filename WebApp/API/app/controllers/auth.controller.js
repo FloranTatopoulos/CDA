@@ -107,3 +107,12 @@ exports.signin = (req, res) => {
         });
       });
   };
+
+  exports.signout = async (req, res) => {
+    try {
+      req.session = null;
+      return res.status(200).send({ message: "Vous avez ete deconnecté" });
+    } catch (err) {
+      this.next(err);
+    }
+  };
