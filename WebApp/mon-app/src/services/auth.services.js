@@ -13,7 +13,16 @@ const logout = () => {
     return JSON.parse(localStorage.getItem("user"));
   };
 
+  const register = (username, email, password) => {
+    return axios.post(API_URL + "signup", {
+      username,
+      email,
+      password,
+    });
+  };
+  
   const AuthService = {
+    register,
     logout,
     getCurrentUser,
   }
