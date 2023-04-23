@@ -6,6 +6,15 @@ import AuthService from "./services/auth.service";
 import EventBus from "./common/EventBus";
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
   return ;
 }
 
