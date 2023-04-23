@@ -20,9 +20,25 @@ const logout = () => {
       password,
     });
   };
+
+  const login = (username, password) => {
+    return axios
+      .post(API_URL + "signin", {
+        username,
+        password,
+      })
+      .then((response) => {
+        if (response.data.username) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+        }
+  
+        return response.data;
+      });
+  };  
   
   const AuthService = {
     register,
+    login,
     logout,
     getCurrentUser,
   }
