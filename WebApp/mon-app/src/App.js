@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import AuthService from "./services/auth.service";
+import Home from "./components/Home";
 import EventBus from "./common/EventBus";
 
 const App = () => {
