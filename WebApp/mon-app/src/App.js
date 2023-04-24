@@ -76,6 +76,11 @@ const App = () => {
                 S'inscrire
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/contact"} className="nav-link">
+                Contactez-nous
+              </Link>
+            </li>
           </div>
         )}
       </nav>
