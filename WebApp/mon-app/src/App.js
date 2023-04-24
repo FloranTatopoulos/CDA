@@ -36,7 +36,20 @@ const App = () => {
         <Link to={"/"} className="navbar-brand">
           ArchiTech
         </Link>
-        
+        <div className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <Link to={"/home"} className="nav-link">
+              Accueil
+            </Link>
+          </li>
+          {currentUser && (
+            <li className="nav-item">
+              <Link to={"/user"} className="nav-link">
+                User
+              </Link>
+            </li>
+          )}
+        </div>
       </nav>
     </div>
   );
