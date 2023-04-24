@@ -50,6 +50,20 @@ const App = () => {
             </li>
           )}
         </div>
+        {currentUser ? (
+          <div className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <Link to={"/profile"} className="nav-link">
+                Profil
+              </Link>
+            </li>
+            <li className="nav-item">
+              <a href="/login" className="nav-link" onClick={logOut}>
+                Déconnexion
+              </a>
+            </li>
+          </div>
+        ) : (
         <div className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to={"/login"} className="nav-link">
@@ -63,6 +77,7 @@ const App = () => {
               </Link>
             </li>
           </div>
+        )}
       </nav>
     </div>
   );
