@@ -8,7 +8,7 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
-
+import Contact from "./components/Contact";
 import EventBus from "./common/EventBus";
 
 const App = () => {
