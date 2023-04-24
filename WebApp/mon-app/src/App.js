@@ -6,6 +6,7 @@ import AuthService from "./services/auth.service";
 import Login from "./components/Login";
 
 import Home from "./components/Home";
+import Profile from "./components/Profile";
 import EventBus from "./common/EventBus";
 
 const App = () => {
