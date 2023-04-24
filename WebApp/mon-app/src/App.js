@@ -5,9 +5,10 @@ import './App.css';
 import AuthService from "./services/auth.service";
 import Login from "./components/Login";
 import Register from "./components/Register";
-
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import BoardUser from "./components/BoardUser";
+
 import EventBus from "./common/EventBus";
 
 const App = () => {
