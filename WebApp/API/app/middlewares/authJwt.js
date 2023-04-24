@@ -16,3 +16,10 @@ verifyToken = (req, res, next) => {
       next();
     });
   };
+
+  const authJwt = {
+    verifyToken,
+    isAdmin,
+    isModerator,
+  };
+  module.exports = authJwt;
