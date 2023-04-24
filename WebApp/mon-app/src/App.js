@@ -30,7 +30,16 @@ const App = () => {
     setCurrentUser(undefined);
   };
   
-  return ;
+  return (
+    <div>
+      <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <Link to={"/"} className="navbar-brand">
+          ArchiTech
+        </Link>
+        
+      </nav>
+    </div>
+  );
 }
 
 export default App;
