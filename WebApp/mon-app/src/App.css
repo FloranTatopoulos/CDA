@@ -12,9 +12,18 @@ label {
   font-size: 90%;
 }
 
+.navbar-brand {
+  margin-left: 10px;
+}
+
+.navbar-expand{
+  padding: 20px;
+  z-index: 1;
+}
+
 .card-container.card {
   max-width: 350px !important;
-  padding: 40px 40px;
+  padding: 40px 60px;
   border-radius: 10%;
 }
 

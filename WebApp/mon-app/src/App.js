@@ -37,7 +37,7 @@ const App = () => {
   };
   
   return (
-    <div>
+    <div style={{height: '100vh'}}>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
           ArchiTech
@@ -48,13 +48,6 @@ const App = () => {
               Accueil
             </Link>
           </li>
-          {currentUser && (
-            <li className="nav-item">
-              <Link to={"/user"} className="nav-link">
-                User
-              </Link>
-            </li>
-          )}
         </div>
         {currentUser ? (
           <div className="navbar-nav ml-auto">
@@ -70,7 +63,7 @@ const App = () => {
             </li>
           </div>
         ) : (
-        <div className="navbar-nav ml-auto">
+        <div className="navbar-nav">
             <li className="nav-item">
               <Link to={"/login"} className="nav-link">
                 Se connecter
@@ -82,6 +75,9 @@ const App = () => {
                 S'inscrire
               </Link>
             </li>
+          </div>
+        )}
+        <div className="navbar-nav m1-auto ">
             <li className="nav-item">
               <Link to={"/contact"} className="nav-link">
                 Contactez-nous
@@ -93,9 +89,8 @@ const App = () => {
               </Link>
             </li>
           </div>
-        )}
       </nav>
-      <div className="container mt-3">
+      <div className="mt-3">
         <Routes>
           <Route exact path={"/"} element={<Home />} />
           <Route exact path={"/home"} element={<Home />} />
