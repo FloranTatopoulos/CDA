@@ -32,13 +32,18 @@ const Navbar = (props) => {
 
     return (
         <div>
-          <nav className="navbar navbar-expand navbar-dark bg-dark" style={{width:"100vw" + {...props.style}}}>
-            <Link to={"/"} className="navbar-brand">
-              <div style={{width:'20vw',position:"absolute", height:'20%',backgroundImage: 'url("./Logo_Unique.png")'}}>
-                
-              </div>
-              ArchiTech
-            </Link>
+          <nav className="navbar navbar-expand " style={{width:"100vw" + {...props.style}}}>
+          <div className="navbar-nav mr-auto">
+            <li>
+                <div className="architech" style={{width:'5vw', height:'100%',backgroundImage: 'url("./Logo_Unique.png")',  backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}>
+                </div>
+            </li>
+            <li>
+                <Link to={"/"} className="navbar-brand">
+                ArchiTech
+                </Link>
+            </li>
+            </div>
             <div className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
