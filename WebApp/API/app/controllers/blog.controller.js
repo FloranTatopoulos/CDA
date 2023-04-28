@@ -1,16 +1,30 @@
-const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.user;
-const Post = db.post;
+const blogService = require("../services/blog.services");
 
-var jwt = require("jsonwebtoken");
+exports.createPost = async(req, res) => {
+    try {
+        const blog = await blogService.createBlog(req.body);
+        res.json({ data: blog, status: "Post créé" });
+      } catch (err) {
+        res.status(500).json({ error: err.message });
+      }
+};
 
-exports.createPost = (req, res) => {
-    const post = new Post({
-      title: req.body.title,
-      author: req.body.author,
-      date: req.body.date,
-      article: req.body.article
-    });
+exports.readPost = async(req, res) => {
+    try {
+        const blog = await blogService.createBlog(req.body);
+        res.json({ data: blog, status: "Post affiché" });
+      } catch (err) {
+        res.status(500).json({ error: err.message });
+      }
+};
 
+
+exports.updatePost = async(req, res) => {
+
+}
+
+exports.deletePost = async(req, res) => {
+    
 }
