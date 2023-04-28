@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
 import AuthService from "../services/auth.service";
+import Navbar from "./Navbar";
 
 const required = (value) => {
   if (!value) {
@@ -69,6 +69,8 @@ const Login = () => {
   };
 
   return (
+    <div>
+    <Navbar></Navbar>
     <div className="col-md-12">
       <div className="card card-container">
         <img
@@ -118,6 +120,7 @@ const Login = () => {
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
         </Form>
       </div>
+    </div>
     </div>
   );
 };

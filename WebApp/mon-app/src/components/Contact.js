@@ -1,4 +1,5 @@
 import React, { useState, } from "react";
+import Navbar from "./Navbar";
 //import ContactService from "../services/contact.service";
 
 const required = (value) => {
@@ -17,6 +18,8 @@ const Contact = () => {
     const [message, setMessage] = useState("");
 
     return  (
+      <div>
+        <Navbar></Navbar>
         <div className="card card-container">
         <form name="contact" method="POST" className="contact_form" data-netlify="true" onSubmit="submit">
                 <label for="name">Nom:</label>
@@ -40,6 +43,7 @@ const Contact = () => {
                         name="message"></textarea>
                 <button type="submit">Envoyer</button>
         </form>
+        </div>
         </div>
     );
 }
