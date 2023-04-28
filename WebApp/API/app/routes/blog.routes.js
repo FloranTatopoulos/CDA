@@ -8,5 +8,9 @@ module.exports = function(app) {
     );
     next();
   });
-  app.post("/api/blog/blog", controller.blog);
+  app.post("/api/blog/blog", controller.createPost);
+  app.get("/api/blog/blog", controller.readPost);
+  app.put("/api/blog/blog", controller.updatePost);
+  app.delete("/api/blog/blog", controller.deletePost);
+
 };
