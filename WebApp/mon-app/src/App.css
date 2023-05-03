@@ -1,35 +1,39 @@
-label {
-  display: block;
-  margin-top: 10px;
-}
-
- .btn{
-  margin-top: 10px;
-  background-color: lightgrey;
-}
-
-.btn-login{
-  font-size: 90%;
-}
-
-.navbar-brand {
-  margin-left: 10px;
-  color:white;
-}
-
-.navbar-expand{
+.navbar{
+  position: relative;
   padding: 20px;
-  z-index: 1;
   background-color: grey;
+}
+
+.navlist {
+  list-style: none;
+       display: flex;
+       padding: 0;
+       margin: 0;
+}
+
+.navlist li {
+      flex: auto;
+      text-align: center;
+      padding: 0.5em;
+      font-size: 15px;
+      color: white;
 }
 
 .nav-link {
   color: white;
 }
 
-.architech{
-  height: 50px;
-  width: 50px;
+.nav-link:hover {
+  color: black;
+}
+
+.home li {
+  margin-right: 40px;
+}
+
+.brandname {
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .card-container.card {
@@ -60,6 +64,21 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+ .btn{
+  margin-top: 10px;
+  background-color: lightgrey;
+}
+
+.btn-login{
+  font-size: 90%;
+}
+
 
 .contact{
   max-width: 500px;

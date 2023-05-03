@@ -32,27 +32,34 @@ const Navbar = (props) => {
 
     return (
         <div>
-          <nav className="navbar navbar-expand " style={{width:"100vw" + {...props.style}}}>
-          <div className="navbar-nav mr-auto">
-            <li>
-                <div className="architech" style={{width:'5vw', height:'100%',backgroundImage: 'url("./Logo_Unique.png")',  backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}>
-                </div>
-            </li>
-            <li>
-                <Link to={"/"} className="navbar-brand">
-                ArchiTech
-                </Link>
-            </li>
+          <nav className="navbar" style={{width:"100vw" + {...props.style}}}>
+          <div className="navlist">
+              <li> 
+                <div className="architech" style={{width:'5vw', height:'150%',backgroundImage: 'url("./Logo_Unique.png")',  backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+              </li>
+              <li>
+                  <h5 className="brandname">ArchiTech</h5>
+              </li>
             </div>
-            <div className="navbar-nav mr-auto">
+            <div className="navlist home">
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
                   Accueil
                 </Link>
               </li>
-            </div>
-            {currentUser ? (
-              <div className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link to={"/contact"} className="nav-link">
+                    Contactez-nous
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={"/blog"} className="nav-link">
+                    Blog
+                  </Link>
+                </li>
+              </div>
+              {currentUser ? (
+              <div className="navlist">
                 <li className="nav-item">
                   <Link to={"/profile"} className="nav-link">
                     Profil
@@ -65,7 +72,7 @@ const Navbar = (props) => {
                 </li>
               </div>
             ) : (
-            <div className="navbar-nav login">
+            <div className="navlist login">
                 <li className="nav-item">
                   <Link to={"/login"} className="nav-link">
                     Se connecter
@@ -79,18 +86,6 @@ const Navbar = (props) => {
                 </li>
               </div>
             )}
-            <div className="navbar-nav m1-auto ">
-                <li className="nav-item">
-                  <Link to={"/contact"} className="nav-link">
-                    Contactez-nous
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={"/blog"} className="nav-link">
-                    Blog
-                  </Link>
-                </li>
-              </div>
           </nav>
           </div>
     );
