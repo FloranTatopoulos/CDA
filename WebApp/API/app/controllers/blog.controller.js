@@ -22,9 +22,19 @@ exports.readPost = async(req, res) => {
 
 
 exports.updatePost = async(req, res) => {
-
+  try {
+    const blog = await blogService.updateBlog(req.params.id, req.body);
+    res.json({ data: blog, status: "success" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 }
 
 exports.deletePost = async(req, res) => {
-    
+  try {
+    const blog = await blogService.deleteBlog(req.params.id);
+    res.json({ data: blog, status: "success" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 }

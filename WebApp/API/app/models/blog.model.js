@@ -5,9 +5,12 @@ const blogSchema = mongoose.model(
   new mongoose.Schema({
     title: String,
     author: String,
-    //mongoose.ObjectId,
-    date: String,
-    article: String
+    image: String,
+    body: String,
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   })
 );
 
