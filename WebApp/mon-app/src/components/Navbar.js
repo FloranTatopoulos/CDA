@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import EventBus from "../common/EventBus";
-import AuthService from "../services/auth.service";
+import AuthService from "../axios/auth.axios";
 
 const Navbar = (props) => {
     const [currentUser, setCurrentUser] = useState(undefined);
