@@ -52,27 +52,30 @@ const Navbar = (props) => {
                     Contactez-nous
                   </Link>
                 </li>
+              </div>
+              {}
+              {currentUser ? (
+              <div>
+                <div className="navlist postlogin">
                 <li className="nav-item">
                   <Link to={"/blog"} className="nav-link">
                     Blog
-                  </Link>
-                </li>
-              </div>
-              {currentUser ? (
-              <div className="navlist">
-                <li className="nav-item">
-                  <Link to={"/profile"} className="nav-link">
-                    Profil
-                  </Link>
+                   </Link>
                 </li>
                 <li className="nav-item">
                   <a href="/login" className="nav-link" onClick={logOut}>
                     Déconnexion
                   </a>
                 </li>
+                <li className="nav-item">
+                  <Link to={"/profile"} className="nav-link">
+                    Profil
+                  </Link>
+                </li>
+              </div>
               </div>
             ) : (
-            <div className="navlist login">
+            <div className="navlist ">
                 <li className="nav-item">
                   <Link to={"/login"} className="nav-link">
                     Se connecter
