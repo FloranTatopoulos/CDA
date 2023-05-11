@@ -1,11 +1,13 @@
 import React from "react";
-import AuthService from "../services/auth.service";
+import AuthService from "../axios/auth.axios";
+import Navbar from "./Navbar";
 
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
 
   return (
-    <div className="container">
+    <div>
+      <Navbar></Navbar>
       <header className="jumbotron">
         <h3>
           Votre profil :
@@ -13,9 +15,9 @@ const Profile = () => {
         </h3>
       </header>
       <p>
-        <strong>Email:</strong> {currentUser.email}
+        <strong>Email :</strong> {currentUser.email}
       </p>
-      <strong>Role::</strong>
+      <strong>Role :</strong>
       <ul>
         {currentUser.roles &&
           currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
