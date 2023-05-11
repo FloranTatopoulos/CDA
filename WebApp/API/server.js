@@ -51,7 +51,6 @@ db.mongoose
   require("./app/routes/contact.routes")(app);
   require("./app/routes/blog.routes")(app);
   
-  // set port, listen for requests
   const PORT = process.env.PORT || 8080;
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
@@ -67,7 +66,17 @@ db.mongoose
             console.log("error", err);
           }
   
-          console.log("added 'user' to roles collection");
+          console.log("role 'user' ajouté dans la table role");
+        });
+
+        new Role({
+          name: "admin"
+        }).save(err => {
+          if (err) {
+            console.log("error", err);
+          }
+  
+          console.log("role 'admin' ajouté dans la table role");
         });
       }
     });
