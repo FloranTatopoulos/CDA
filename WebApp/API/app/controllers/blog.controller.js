@@ -5,7 +5,7 @@ const blogService = require("../services/blog.services");
 exports.getAllPosts = async (req, res) => {
   try {
     const blogs = await blogService.getAllBlogs();
-    res.json({ data: blogs, status: "affiché avec succès" });
+    res.json({ data: blogs, status: "Post affiché" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -19,16 +19,6 @@ exports.createPost = async(req, res) => {
         res.status(500).json({ error: err.message });
       }
 };
-
-exports.readPost = async(req, res) => {
-    try {
-        const blog = await blogService.createBlog(req.body);
-        res.json({ data: blog, status: "Post affiché" });
-      } catch (err) {
-        res.status(500).json({ error: err.message });
-      }
-};
-
 
 exports.updatePost = async(req, res) => {
   try {
