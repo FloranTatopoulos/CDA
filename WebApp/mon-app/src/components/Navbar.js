@@ -62,7 +62,11 @@ const Navbar = (props) => {
                 </li>
                 <li className="nav-item">
                   <Link to={"/profile"} className="nav-link">
-                    Profil
+                  <img
+                    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                    alt="profile-img"
+                    className="profile-img-navbar"
+                  />
                   </Link>
                 </li>
               </div>

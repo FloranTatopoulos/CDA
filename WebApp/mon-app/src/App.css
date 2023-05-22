@@ -32,12 +32,18 @@
 }
 
 .postlogin li {
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
-.brandname {
-  margin-top: 10px;
-  margin-left: 10px;
+.profile-img-navbar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.profil-name{
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .card-container.card {
