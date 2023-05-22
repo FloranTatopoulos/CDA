@@ -34,7 +34,7 @@ const Navbar = (props) => {
           <nav className="navbar" style={{width:"100vw" + {...props.style}}}>
             <div className="navlist home">
                 <li>
-                  <div className="architech" style={{width:'5vw', height:'100%',backgroundImage: 'url("./Logo_long.png")',  backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                  <img className="architech" src="./Logo_long.png"/>
                 </li>
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
@@ -72,7 +72,7 @@ const Navbar = (props) => {
               </div>
               </div>
             ) : (
-            <div className="navlist ">
+            <div className="navlist login">
                 <li className="nav-item">
                   <Link to={"/login"} className="nav-link">
                     Se connecter
