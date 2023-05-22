@@ -9,7 +9,6 @@ const Navbar = (props) => {
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
-
     if (user) {
       setCurrentUser(user);
     }
@@ -33,15 +32,10 @@ const Navbar = (props) => {
     return (
         <div>
           <nav className="navbar" style={{width:"100vw" + {...props.style}}}>
-          <div className="navlist">
-              <li> 
-                <div className="architech" style={{width:'5vw', height:'150%',backgroundImage: 'url("./Logo_Unique.png")',  backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
-              </li>
-              <li>
-                  <h5 className="brandname">ArchiTech</h5>
-              </li>
-            </div>
             <div className="navlist home">
+                <li>
+                  <div className="architech" style={{width:'5vw', height:'100%',backgroundImage: 'url("./Logo_long.png")',  backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                </li>
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
                   Accueil
@@ -53,7 +47,6 @@ const Navbar = (props) => {
                   </Link>
                 </li>
               </div>
-              {}
               {currentUser ? (
               <div>
                 <div className="navlist postlogin">
