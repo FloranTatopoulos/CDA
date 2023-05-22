@@ -8,20 +8,23 @@ const Profile = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <header className="jumbotron">
-        <h3>
-          Votre profil :
-          <br/><strong>{currentUser.username}</strong>
-        </h3>
-      </header>
-      <p>
-        <strong>Email :</strong> {currentUser.email}
-      </p>
-      <strong>Role :</strong>
-      <ul>
-        {currentUser.roles &&
-          currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-      </ul>
+      <div className="col-md-12">
+        <div className="card card-container">
+          <img
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            alt="profile-img"
+            className="profile-img-card"
+          />
+          <h3 className="profil-name">{currentUser.username}</h3>
+        <p>
+          <strong>Email :</strong> 
+          <br/>{currentUser.email}
+        </p>
+        <strong>Role :</strong>
+          {currentUser.roles &&
+            currentUser.roles.map((role, index) => <p key={index}>{role}</p>)}
+        </div>
+      </div>
     </div>
   );
 };
