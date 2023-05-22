@@ -11,13 +11,8 @@ const create = (title, author, image, body) => {
     });
   };
 
-const read = (title, author, image, body) => {
-    return axios.get(API_URL + "readPost", {
-        title,
-        author,
-        image,
-        body
-      });
+const read = () => {
+    return axios.get(API_URL + "readPost");
 };
 
 const update = (title, author, image, body) => {
