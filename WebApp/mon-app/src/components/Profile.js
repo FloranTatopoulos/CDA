@@ -6,8 +6,10 @@ const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
 
   return (
-    <div>
-      <Navbar></Navbar>
+    <div style={{height:"100vh"}}>
+      <Navbar style={{position: 'absolute'}}></Navbar>
+      <div style={{width: '-webkit-fill-available', position:"absolute", height: '100%', backgroundImage: 'url("./architecture-gris.jpg")',
+      backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat',opacity:"30%"}}/>
       <div className="col-md-12">
         <div className="card card-container">
           <img

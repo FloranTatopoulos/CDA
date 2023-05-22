@@ -18,8 +18,10 @@ const Contact = () => {
     const [message, setMessage] = useState("");
 
     return  (
-      <div>
-        <Navbar></Navbar>
+      <div style={{height:"100vh"}}>
+        <Navbar style={{position: 'absolute'}}></Navbar>
+        <div style={{width: '-webkit-fill-available', position:"absolute", height: '100%', backgroundImage: 'url("./architecture-gris.jpg")',
+         backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat',opacity:"30%"}}/>
         <div className="card card-container">
         <form name="contact" method="POST" className="contact_form" data-netlify="true" onSubmit="submit">
                 <label for="name">Nom:</label>
@@ -41,7 +43,7 @@ const Contact = () => {
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="Donnez nous notre avis" 
                         name="message"></textarea>
-                <button type="submit">Envoyer</button>
+                <button className="btn"><span className="btn-login">Envoyer</span></button>
         </form>
         </div>
         </div>
