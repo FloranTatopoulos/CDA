@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
-import AuthService from "../axios/auth.axios";
 import blogService from "../axios/blog.axios";
+import Post from "./Post";
 
 const Blog = () => {
 
-    const [showAdminBoard, setShowAdminBoard] = useState(false);
-    const [currentUser, setCurrentUser] = useState(undefined);
     const [posts, setPosts] = useState();
 
-    useEffect(() => {
-        // const user = AuthService.getCurrentUser();
-        // if (user) {
-        //     setCurrentUser(user);
-        //     setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
-        // }
-        
+    useEffect(() => {       
         if(!posts){
             let test = blogService.read()
             const promise1 = Promise.resolve(test);
@@ -29,17 +20,10 @@ const Blog = () => {
     return (
         <div>
             <Navbar></Navbar>
-            {showAdminBoard && (
-                <Link to={"/post"}>
-                    <h3>Créer une publication</h3>
-              </Link>
-            )}
              <div className="allPosts"> 
                 {posts && posts.length > 0 ? (
                 posts.map((c) => (
-                <div className="image-type">
-                    <p>{c.title} créé par {c.author} {c.body}</p>
-                </div>
+                    <p>Post numéro {c._id} {c.title} créé par {c.author} {c.body}</p>
                 ))
                 ) : (
                     <div className="image-type">
@@ -47,6 +31,10 @@ const Blog = () => {
                     </div>
                 )}
             </div>
+
+            {/* {posts.length > 0 && posts.map(post => (
+                    <Post {...post}/>
+                ))} */}
         </div>
     )
 

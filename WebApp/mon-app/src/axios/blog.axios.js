@@ -26,10 +26,6 @@ const update = (title, author, image, body) => {
 
 const Delete = (title, author, image, body) => {
     return axios.delete(API_URL + "deletePost", {
-        title,
-        author,
-        image,
-        body
       });
 
 }
