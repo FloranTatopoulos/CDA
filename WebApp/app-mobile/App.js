@@ -1,20 +1,61 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { View , StyleSheet} from 'react-native';
+import Home from './src/components/Home';
+import Login from './src/components/Login';
+import Register from './src/components/Register';
+import Profile from './src/components/Profile';
+import Blog from './src/components/Blog';
+
+const Stack = createStackNavigator();
 
 export default function App() {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerMode: 'screen',
+          headerTintColor: 'black',
+          headerStyle: { backgroundColor: 'white'},
+        }}
+      >
+        <Stack.Screen
+          name="Accueil"
+          component={Home}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            title: 'Connexion',
+          }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{
+            title: `Inscription`,
+          }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            title: 'Mon profil',
+          }}
+        />
+        <Stack.Screen
+          name="Blog"
+          component={Blog}
+          options={{
+            title: 'Mon blog',
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
+  
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
