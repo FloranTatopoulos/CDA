@@ -19,32 +19,18 @@ const required = (value) => {
 const Login = () => {
   const form = useRef();
   const checkBtn = useRef();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const navigate = useNavigate();
-
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
-  };
-
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
-
   const handleLogin = (e) => {
     e.preventDefault();
-
     setMessage("");
     setLoading(true);
-
     form.current.validateAll();
-
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(username, password).then(
         () => {
@@ -85,7 +71,7 @@ const Login = () => {
               className="form-control"
               name="username"
               value={username}
-              onChange={onChangeUsername}
+              onChange={(e) => setUsername(e.target.value)}
               validations={[required]}
             />
           </div>
@@ -97,7 +83,7 @@ const Login = () => {
               className="form-control"
               name="password"
               value={password}
-              onChange={onChangePassword}
+              onChange={(e) => setPassword(e.target.value)}
               validations={[required]}
             />
           </div>
