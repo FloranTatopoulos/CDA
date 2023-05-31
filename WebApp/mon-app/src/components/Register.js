@@ -26,16 +26,6 @@ const validEmail = (value) => {
   }
 };
 
-const vusername = (value) => {
-  if (value.length < 3) {
-    return (
-      <div className="invalid-feedback d-block">
-        Le nom d'utilisateur doit comporter minimum 3 caracteres.
-      </div>
-    );
-  }
-};
-
 const vpassword = (value) => {
   if (value.length < 6) {
     return (
@@ -56,29 +46,11 @@ const Register = (props) => {
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
 
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
-  };
-
-  const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
-
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
-
   const handleRegister = (e) => {
     e.preventDefault();
-
     setMessage("");
     setSuccessful(false);
-
     form.current.validateAll();
-
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.register(username, email, password).then(
         (response) => {
@@ -92,7 +64,6 @@ const Register = (props) => {
               error.response.data.message) ||
             error.message ||
             error.toString();
-
           setMessage(resMessage);
           setSuccessful(false);
         }
@@ -118,8 +89,8 @@ const Register = (props) => {
                     className="form-control"
                     name="username"
                     value={username}
-                    onChange={onChangeUsername}
-                    validations={[required, vusername]}
+                    onChange={(e) => setUsername(e.target.value)}
+                    validations={[required]}
                   />
                 </div>
 
@@ -130,7 +101,7 @@ const Register = (props) => {
                     className="form-control"
                     name="email"
                     value={email}
-                    onChange={onChangeEmail}
+                    onChange={(e) => setEmail(e.target.value)}
                     validations={[required, validEmail]}
                   />
                 </div>
@@ -142,7 +113,7 @@ const Register = (props) => {
                     className="form-control"
                     name="password"
                     value={password}
-                    onChange={onChangePassword}
+                    onChange={(e) => setPassword(e.target.value)}
                     validations={[required, vpassword]}
                   />
                 </div>
