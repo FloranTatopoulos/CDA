@@ -10,7 +10,6 @@ import Profile from "./components/Profile";
 import Contact from "./components/Contact";
 import EventBus from "./common/EventBus";
 import Blog from "./components/Blog";
-import CreatePost from "./components/CreatePost";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -46,7 +45,6 @@ const App = () => {
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path={"/blog"} element={<Blog />} />
-          <Route exact path={"/post"} element={<CreatePost />} />
         </Routes>
   );
 }
