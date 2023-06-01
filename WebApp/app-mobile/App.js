@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { View , StyleSheet} from 'react-native';
 import Home from './src/components/Home';
+import Welcome from './src/components/Welcome';
 import Login from './src/components/Login';
 import Register from './src/components/Register';
 import Profile from './src/components/Profile';
@@ -25,6 +26,13 @@ export default function App() {
         <Stack.Screen
           name="Accueil"
           component={Home}
+        />
+        <Stack.Screen
+          name="Welcome"
+          component={Welcome}
+          options={{
+            title: `Bienvenue`,
+          }}
         />
         <Stack.Screen
           name="Login"
@@ -51,7 +59,7 @@ export default function App() {
           name="Blog"
           component={Blog}
           options={{
-            title: 'Mon blog',
+            title: 'Blog',
           }}
         />
       </Stack.Navigator>

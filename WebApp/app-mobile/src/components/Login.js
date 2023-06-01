@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { View, TextInput, Pressable, StyleSheet, Text, Image, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AuthService from "../axios/auth.axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -12,21 +13,23 @@ const Login = () => {
 
   const navigation = useNavigation();
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
 
     if (!username || !password) {
       Alert.alert("Erreur", "Veuillez remplir tous les champs");
       setLoading(false);
       return;
     }
-
-    AuthService.login(username, password)
+    try{
+      await AsyncStorage.setItem('username', username);
+      await AsyncStorage.setItem('password', password);
+      AuthService.login(username, password)
       .then(() => {
         setUsername("");
         setPassword("");
-        navigation.replace("Blog");        
+        navigation.replace("Welcome");        
       })
-      .catch((error) => {
+    .catch((error) => {
         const resMessage =
           (error.response &&
             error.response.data &&
@@ -36,6 +39,9 @@ const Login = () => {
           console(error)
         Alert.alert("Erreur", resMessage);
       });
+    } catch (error) {
+      Alert.alert("Erreur", "Une erreur s'est produite lors du stockage des donnÃ©es.");
+    }
   };
 
 

@@ -13,7 +13,7 @@ const Register = () => {
   
   const navigation = useNavigation();
 
-  const handleRegister = () => {
+  const handleRegister = async() => {
     if (!username || !email || !password) {
       Alert.alert("Erreur", "Veuillez remplir tous les champs");
       setLoading(false);
@@ -41,7 +41,7 @@ const Register = () => {
       setLoading(false);
       return;
     }
-
+    
     AuthService.register(username,email, password)
       .then(() => {
         setUsername("");
