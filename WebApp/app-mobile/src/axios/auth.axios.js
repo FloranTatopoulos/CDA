@@ -9,10 +9,6 @@ const logout = () => {
     });
   };
   
-  const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem("user"));
-  };
-
   const register = (username, email, password) => {
     return axios.post(API_URL + "signup", {
       username,
@@ -36,7 +32,6 @@ const logout = () => {
     register,
     login,
     logout,
-    getCurrentUser,
   }
   
   export default AuthService;
