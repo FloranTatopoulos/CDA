@@ -119,3 +119,16 @@ label {
 .contact_form button {
   font-size: 1rem;
 }
+
+.blog-card {
+  max-width: 350px !important;
+  padding: 20px 60px;
+  border-radius: 10%;
+}
+
+.posts{
+  margin-top: 50px;
+  display: flex;
+  align-items: baseline;
+
+}
