@@ -1,25 +1,7 @@
-import React, { useState, useEffect } from "react";
-import UserService from "../axios/user.axios";
+import React from "react";
 import Navbar from "./Navbar";
 
 const Home = () => {
-  const [content, setContent] = useState("");
-
-  useEffect(() => {
-    UserService.getPublicContent().then(
-      (response) => {
-        setContent(response.data);
-      },
-      (error) => {
-        const _content =
-          (error.response && error.response.data) ||
-          error.message ||
-          error.toString();
-
-        setContent(_content);
-      }
-    );
-  }, []);
 
   return (
       <div style={{height:"100vh"}}>
