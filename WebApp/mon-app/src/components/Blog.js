@@ -30,7 +30,7 @@ const Blog = () => {
                         <Link className="link" style={{color:'black', textDecoration:'none'}} to={`/post/${post._id}`}>
                             <h3>{post.title}</h3>
                         </Link>
-                        <img src={post.image} style={{width:'18vw'}} alt="" />
+                        <img src={post.image} style={{height:'25vh', width:'15vw'}} alt="" />
                         <p style={{fontWeight:'bold'}}>{getText(post.body)}</p>
                         <p className="author" style={{fontStyle:'italic'}}>Créé par {post.author}</p>
                     </div>
