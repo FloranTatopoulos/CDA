@@ -64,7 +64,7 @@ const Home = () => {
             />
             <View style ={styles.cardAuth}>
                 <Pressable style={styles.buttonLogin} onPress={() =>
-                   navigation.navigate('Login')}>
+                   navigation.replace('Login')}>
                 <Text style={styles.text}>Se Connecter</Text>
                 </Pressable>
                 <Pressable style={styles.buttonRegister} onPress={() => 
