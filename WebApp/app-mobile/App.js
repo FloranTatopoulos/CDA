@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { View , StyleSheet} from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { View , StyleSheet, Pressable, Image} from 'react-native';
 import Home from './src/components/Home';
 import Welcome from './src/components/Welcome';
 import Login from './src/components/Login';
@@ -11,7 +11,7 @@ import Blog from './src/components/Blog';
 
 const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
   
   return (
     <NavigationContainer>
@@ -67,3 +67,5 @@ export default function App() {
   );
   
 }
+
+export default App;
