@@ -19,8 +19,14 @@ const Welcome = () => {
       });
     }, []);
     
-    const handleLogout = () => {
-        
+    const handleLogout = async () => {
+      try {
+        await AsyncStorage.removeItem('username');
+        navigation.replace('Login')
+        console.log('Vous avez bien été déconnecté');
+      } catch (error) {
+        console.log('Error logging out: ', error);
+      }
     }
 
     return (
