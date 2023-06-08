@@ -9,7 +9,7 @@ module.exports = function(app) {
     );
     next();
   });
-  app.get("/api/blog/readPost", controller.getAllPosts);
+  app.get("/api/blog/readPost", controller.readPost);
   app.post("/api/blog/createPost", [authJwt.verifyToken, authJwt.isAdmin], controller.createPost);
   app.put("/api/blog/updatePost/:id", [authJwt.verifyToken, authJwt.isAdmin],controller.updatePost);
   app.delete("/api/blog/deletePost/:id", [authJwt.verifyToken, authJwt.isAdmin],controller.deletePost);

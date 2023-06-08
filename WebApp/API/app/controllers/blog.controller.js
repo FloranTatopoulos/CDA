@@ -1,8 +1,6 @@
-const db = require("../models");
-const User = db.user;
 const blogService = require("../services/blog.services");
 
-exports.getAllPosts = async (req, res) => {
+exports.readPost = async (req, res) => {
   try {
     const blogs = await blogService.getAllBlogs();
     res.json({ data: blogs, status: "Post affiché" });
