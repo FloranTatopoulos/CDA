@@ -1,6 +1,6 @@
 .content{
   width: 80% ;
-  height: 700px ;
+  height: 550px ;
   justify-content: center;
   align-items: center;
   background-color: rgb(190,190,190);;
@@ -10,7 +10,7 @@
 }
 
 .header{
-  display: flex;
+  display: inline;
   justify-content: 'space-between';
 }
 
