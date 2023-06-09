@@ -1,5 +1,7 @@
 const express = require("express");
 const cookieSession = require("cookie-session");
+const dotenv = require('dotenv')
+dotenv.config();
 
 const dbConfig = require("./app/config/db.config");
 
@@ -28,10 +30,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+  .connect(process.env.MONGOURL)
   .then(() => {
     console.log("Successfully connect to MongoDB.");
     initial();
