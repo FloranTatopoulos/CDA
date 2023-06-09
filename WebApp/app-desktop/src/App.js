@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import Blog from "./components/Blog";
+import BoardAdmin from "./components/BoardAdmin";
 
 const App = () => {
   
@@ -18,6 +19,7 @@ const App = () => {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path={"/blog"} element={<Blog />} />
+          <Route exact path={"/boardadmin"} element={<BoardAdmin />} />
         </Routes>
   );
 }
