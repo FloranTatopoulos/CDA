@@ -7,7 +7,11 @@
   display: flex;
   margin: auto;
   border-width:black;
-  margin-top: 50px;
+}
+
+.header{
+  display: flex;
+  justify-content: 'space-between';
 }
 
 .card-container.card {
@@ -17,7 +21,7 @@
 }
 
 .card {
-  background-color: lightgrey;
+  background-color: rgb(240,240,240);
   padding: 20px 25px 30px;
   margin: 0 auto 25px;
   margin-top: 50px;
@@ -87,7 +91,6 @@ label {
 .blog-card {
   max-width: 350px !important;
   max-height: 450px !important;
-  padding: 20px 60px;
   border-radius: 10%;
 }
 
@@ -98,5 +101,4 @@ label {
   object-fit: contain;
   margin: 25px;
   flex-wrap: wrap;
-
 }
