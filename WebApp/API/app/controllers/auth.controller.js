@@ -10,7 +10,7 @@ exports.signup = (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
-    roles: "645cbad38de55f7e8b21b9de"
+    roles: "6482ff864536e449e6cad939"
   });
 
   user.save((err, user) => {
@@ -57,9 +57,8 @@ exports.signin = (req, res) => {
           authorities.push(user.roles[i].name.toUpperCase());
         }
   
-        req.session.token = token;
-  
         res.status(200).send({
+          token:token,
           id: user._id,
           username: user.username,
           email: user.email,

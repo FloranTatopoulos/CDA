@@ -5,8 +5,7 @@ const User = db.user;
 const Role = db.role;
 
 verifyToken = (req, res, next) => {
-    let token = req.session.token;
-  
+    let token = req.headers.token.split(" ")[1];
     if (!token) {
       return res.status(403).send({ message: "No token provided!" });
     }
@@ -19,7 +18,6 @@ verifyToken = (req, res, next) => {
       next();
     });
   };
-
   
 isAdmin = (req, res, next) => {
   User.findById(req.userId).exec((err, user) => {
