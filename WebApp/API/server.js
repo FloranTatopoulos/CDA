@@ -3,8 +3,6 @@ const cookieSession = require("cookie-session");
 const dotenv = require('dotenv')
 dotenv.config();
 
-const dbConfig = require("./app/config/db.config");
-
 const app = express();
 
 app.use((req, res, next) => {
