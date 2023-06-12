@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api/test/";
+const API_URL = "http://localhost:8080/api/test/";
 
 const getPublicContent = () => {
   return axios.get(API_URL + "all");
@@ -11,7 +11,14 @@ const getUserBoard = () => {
 };
 
 const getAdminBoard = () => {
-  return axios.get(API_URL + "admin");
+  const user = JSON.parse(localStorage.getItem('user'));
+  const token = user ? user.token : '';
+
+  return axios.get(API_URL + 'admin', {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
 };
 
 const UserService = {

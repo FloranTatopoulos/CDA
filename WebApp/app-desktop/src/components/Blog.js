@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import blogService from "../axios/blog.axios";
 import { Link } from "react-router-dom";
+import {format} from "date-fns";
 
 const Blog = () => {
 
@@ -21,16 +22,20 @@ const Blog = () => {
 
     return (
         <div>
+            <a href="/home">
+                <img className="back" src="./back.png" alt=""/>
+              </a>
             <div className="posts">
                 {posts && posts.map((post) => (
                 <div className="card blog-card" style={{textAlign:'center', alignItems:'center'}} key={post._id}>
                     <div className="contentblog">
-                        <Link className="link" style={{color:'black', textDecoration:'none'}} to={`/post/${post._id}`}>
+                        <Link className="link" style={{color:'black', textDecoration:'none'}} to={`/singlePost/${post._id}`}>
                             <h3>{post.title}</h3>
                         </Link>
                         <img src={post.image} style={{height:'25vh', width:'15vw'}} alt="" />
                         <p style={{fontWeight:'bold'}}>{getText(post.body)}</p>
                         <p className="author" style={{fontStyle:'italic'}}>Créé par {post.author}</p>
+                        <time>Le {format(new Date(post.createdAt), 'dd-mm-yyyy')}</time>
                     </div>
                 </div>
                 ))}
