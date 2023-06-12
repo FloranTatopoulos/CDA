@@ -6,7 +6,6 @@
   background-color: rgb(190,190,190);;
   display: flex;
   margin: auto;
-  border-width:black;
 }
 
 .header{
@@ -101,4 +100,11 @@ label {
   object-fit: contain;
   margin: 25px;
   flex-wrap: wrap;
+}
+
+.back{
+  width:80px;
+  float:'left';
+  margin-left:10px;
+  margin-top: 10px;
 }
