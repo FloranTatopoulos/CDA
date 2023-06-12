@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import blogService from "../axios/blog.axios";
 import {Link} from "@react-navigation/native";
+import {format} from "date-fns";
 
 
 const Blog = () =>{    
@@ -34,6 +35,9 @@ const Blog = () =>{
                         <Text style={{fontStyle:'italic'}}>
                             Créé par {post.author}
                         </Text>
+                        <Text style={{marginTop:20}}>
+                            Le {format(new Date(post.createdAt), 'dd-mm-yyyy')}
+                        </Text>
                 </View>
             ))}
         </View>
@@ -47,8 +51,8 @@ const styles = StyleSheet.create({
     },
     postCard:{
         marginTop:20,
-        width: 250,
-        height: 300,
+        width: 300,
+        height: 400,
         borderRadius:30,
         backgroundColor: 'rgb(230,230,230)',
         alignItems: 'center',
