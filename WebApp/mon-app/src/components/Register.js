@@ -77,8 +77,9 @@ const Register = (props) => {
       <div style={{width: '-webkit-fill-available', position:"absolute", height: '100%', backgroundImage: 'url("./architecture-gris.jpg")',
       backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat',opacity:"30%"}}/>
       <div className="col-md-12">
-        <div className="card card-container">
+        <div className="card card-container" style={{textAlign:'center', alignItems:'center'}}>
         <h3 style={{textAlign:"center", marginBottom:"20px"}}>Inscrivez-vous</h3>
+        <img src="./Logo_Unique.png" style={{width:'70%'}}/>
           <Form onSubmit={handleRegister} ref={form}>
             {!successful && (
               <div>

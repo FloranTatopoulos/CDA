@@ -34,7 +34,7 @@ const Navbar = (props) => {
           <nav className="navbar" style={{width:"100vw" + {...props.style}}}>
             <div className="navlist home">
                 <li>
-                  <img className="architech" src="./Logo_long.png"/>
+                  <img className="architech" src="../Logo_long.png"/>
                 </li>
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
@@ -56,7 +56,7 @@ const Navbar = (props) => {
                    </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="/login" className="nav-link" onClick={logOut}>
+                  <a href="/" className="nav-link" onClick={logOut}>
                     Déconnexion
                   </a>
                 </li>
