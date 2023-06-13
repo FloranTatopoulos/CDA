@@ -1,18 +1,14 @@
 import React , {useEffect, useState} from "react";
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import blogService from "../axios/blog.axios";
 import {Link} from "@react-navigation/native";
-import {format} from "date-fns";
-
+import axios from "axios";
 
 const Blog = () =>{    
-    const navigation = useNavigation();
     const [posts, setPosts] = useState();
 
     useEffect(() => {       
         if(!posts){
-            blogService.read().then((value) => {
+            axios.get("http://192.168.1.97:8080/api/blog/readPost").then((value) => {
               setPosts(value.data.data);
             });
           }
@@ -36,7 +32,7 @@ const Blog = () =>{
                             Créé par {post.author}
                         </Text>
                         <Text style={{marginTop:20}}>
-                            Le {format(new Date(post.createdAt), 'dd-mm-yyyy')}
+                        <time>Le {new Date(post.createdAt).toLocaleDateString('fr')}</time>
                         </Text>
                 </View>
             ))}

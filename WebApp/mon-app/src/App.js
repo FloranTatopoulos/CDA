@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Profile from "./components/Profile";
 import Contact from "./components/Contact";
 import Blog from "./components/Blog";
+import SinglePost from "./components/SinglePost";
 
 const App = () => {
   
@@ -20,6 +21,7 @@ const App = () => {
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path={"/blog"} element={<Blog />} />
+          <Route path={`/singlePost/:id`} element={< SinglePost/>} />
         </Routes>
   );
 }
