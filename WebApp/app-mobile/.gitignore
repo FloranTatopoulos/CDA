@@ -10,8 +10,6 @@ npm-debug.*
 *.orig.*
 web-build/
 app.json
-package.json
-package-lock.json
 %ProgramData%
 # macOS
 .DS_Store
