@@ -23,6 +23,8 @@ const Blog = () => {
     return (
         <div>
             <Navbar></Navbar>
+            <div style={{width: '-webkit-fill-available', position:"absolute", height: '100%', backgroundImage: 'url("./architecture-gris.jpg")',
+            backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', opacity:"30%"}}/>
             <div className="posts">
                 {posts && posts.map((post) => (
                 <div className="card blog-card" style={{textAlign:'center', alignItems:'center'}} key={post._id}>

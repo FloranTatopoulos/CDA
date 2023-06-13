@@ -31,10 +31,11 @@ const SinglePost =() => {
       }
     if(visible) {
       return (
-          <div>
+        <div>
           <Navbar></Navbar>
-            <div className="singlepost" >
-            <div className="card single-blog" style={{textAlign:'center', justifyContent:'center'}}>
+          <div style={{width: '-webkit-fill-available', position:"absolute", height: '90%', backgroundImage: 'url("../architecture-gris.jpg")',
+          backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', opacity:"30%"}}/>
+          <div className="card single-blog" style={{textAlign:'center', justifyContent:'center'}}>
             <div className="content">
               <h1 style={{marginBottom:'20px'}}>{post.title}</h1>
                 <img src={post.image} style={{height:'60%', width:'80%'}} alt="" />
@@ -44,8 +45,7 @@ const SinglePost =() => {
               <h5 style={{marginTop:'30px'}}>Le {new Date(post.createdAt).toLocaleDateString('fr')}</h5>
                 </div>
             </div>
-            </div>
-            </div>
+          </div>
         );
         }
         else {
