@@ -122,8 +122,14 @@ label {
 
 .blog-card {
   max-width: 350px !important;
-  max-height: 450px !important;
+  max-height: 550px !important;
   padding: 20px 60px;
+  border-radius: 10%;
+}
+
+.single-blog {
+  max-width: 850px !important;
+   height: 750px !important;
   border-radius: 10%;
 }
 
