@@ -93,6 +93,12 @@ label {
   border-radius: 10%;
 }
 
+.single-blog {
+  max-width: 850px !important;
+   height: 750px !important;
+  border-radius: 10%;
+}
+
 .posts{
   margin-top: 50px;
   display: flex;

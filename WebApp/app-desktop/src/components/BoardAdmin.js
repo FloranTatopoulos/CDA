@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-validation/build/form";
 import UserService from "../axios/user.axios";
-import EventBus from "../common/EventBus";
 import axios from "axios";
 
 const required = (value) => {
@@ -34,20 +33,19 @@ const BoardAdmin = () => {
           error.toString();
 
         setContent(_content);
-
-        if (error.response && error.response.status === 401) {
-          EventBus.dispatch("logout");
-        }
       }
     );
   }, []);
 
   const createNewPost = async (e) => {
     e.preventDefault();
+    if (!title || !image || !body || !author) {
+      alert("Veuillez remplir tous les champs");
+      return;
+    }
     try {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user.token;
-      console.log(token);
       await axios.post(
         "http://localhost:8080/api/blog/createPost",
         { title, image, body, author },

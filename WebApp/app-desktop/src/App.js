@@ -5,9 +5,10 @@ import './App.css';
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
-import Profile from "./components/Profile";
 import Blog from "./components/Blog";
 import BoardAdmin from "./components/BoardAdmin";
+import EditPost from "./components/EditPost";
+import SinglePost from "./components/SinglePost";
 
 const App = () => {
   
@@ -17,9 +18,10 @@ const App = () => {
           <Route exact path={"/home"} element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
-          <Route exact path="/profile" element={<Profile />} />
           <Route exact path={"/blog"} element={<Blog />} />
           <Route exact path={"/boardadmin"} element={<BoardAdmin />} />
+          <Route path="/post/:id" element={<SinglePost />} />
+          <Route path="/editPost/:id" element={<EditPost />} />
         </Routes>
   );
 }
