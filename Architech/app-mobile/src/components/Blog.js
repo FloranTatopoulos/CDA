@@ -1,6 +1,5 @@
 import React , {useEffect, useState} from "react";
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import {Link} from "@react-navigation/native";
 import axios from "axios";
 
 const Blog = () =>{    
@@ -19,20 +18,23 @@ const Blog = () =>{
         <View style={styles.container}>
             {posts && posts.map((post) => (
                 <View style={styles.postCard} key={post._id}>
-                        <Link to={`/post/${post._id}`}>
-                        <Text style={{color:'black', fontSize:20}}>{post.title}
-                        </Text></Link>
+                        <Text style={{color:'black', fontWeight:'bold',fontSize:20, marginTop:20}}>
+                            {post.theme}
+                        </Text>
                         <Image
                             style={styles.imagePost}
                             source={{ url: post.image }}/>
-                        <Text style={{fontWeight:'bold', marginBottom:10}}>
+                        <Text style={{fontWeight:'bold', marginBottom:30}}>
+                            {post.title}
+                        </Text>
+                        <Text style={{color:'black', fontSize:15, textAlign:'center'}}>
                             {post.body}
                         </Text>
-                        <Text style={{fontStyle:'italic'}}>
+                        <Text style={{fontStyle:'italic', marginTop:20}}>
                             Créé par {post.author}
                         </Text>
                         <Text style={{marginTop:20}}>
-                        <time>Le {new Date(post.createdAt).toLocaleDateString('fr')}</time>
+                            Le {new Date(post.createdAt).toLocaleDateString('fr')}
                         </Text>
                 </View>
             ))}
@@ -47,18 +49,17 @@ const styles = StyleSheet.create({
     },
     postCard:{
         marginTop:20,
-        width: 300,
-        height: 400,
+        width: 350,
+        height: 700,
         borderRadius:30,
         backgroundColor: 'rgb(230,230,230)',
-        alignItems: 'center',
-        justifyContent: 'center',         
+        alignItems: 'center',        
     },
     imagePost:{
         marginTop:20,
         marginBottom:20,
         width:'100%',
-        height:'50%'
+        height:'40%'
     }
 });
 

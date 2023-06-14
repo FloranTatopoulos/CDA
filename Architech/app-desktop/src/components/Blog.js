@@ -14,11 +14,6 @@ const Blog = () => {
           }
     },[]);
 
-    const getText = (html) =>{
-        const doc = new DOMParser().parseFromString(html, "text/html")
-        return doc.body.textContent
-      }
-
     return (
         <div>
             <div className="header" style={{textAlign:'center'}}>
@@ -27,18 +22,19 @@ const Blog = () => {
             <a href="/home">
                 <img className="back" src="./back.png" alt=""/>
               </a>
-            <div className="posts">
+              <div className="posts">
                 {posts && posts.map((post) => (
                 <div className="card blog-card" style={{textAlign:'center', alignItems:'center'}} key={post._id}>
-                    <div className="contentblog">
+                    <div className="content">
                         <Link className="link" style={{color:'black', textDecoration:'none'}} to={`/singlePost/${post._id}`}>
-                            <h3>{post.title}</h3>
+                            <h3>{post.theme}</h3>
                         </Link>
                         <img src={post.image} style={{height:'25vh', width:'15vw'}} alt="" />
-                        <p style={{fontWeight:'bold'}}>{getText(post.body)}</p>
+                        <p style={{fontWeight:'bold'}}>{post.title}</p>
+
                         <p className="author" style={{fontStyle:'italic'}}>Créé par {post.author}</p>
                         <time>Le {new Date(post.createdAt).toLocaleDateString('fr')}</time>
-                    </div>
+                        </div>
                 </div>
                 ))}
             </div>
