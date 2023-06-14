@@ -9,6 +9,15 @@ exports.readPost = async (req, res) => {
   }
 };
 
+exports.getPostById = async (req, res) => {
+  try {
+    const blog = await blogService.getBlogById(req.params.id);
+    res.json({ data: blog, status: "success" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 exports.createPost = async(req, res) => {
     try {
         const blog = await blogService.createBlog(req.body);

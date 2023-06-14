@@ -5,6 +5,10 @@ exports.getAllBlogs = async () => {
   return await BlogModel.find();
 };
 
+exports.getBlogById = async (id) => {
+  return await BlogModel.findById(id);
+};
+
 exports.createBlog = async (blog) => {
   return await BlogModel.create(blog);
 };

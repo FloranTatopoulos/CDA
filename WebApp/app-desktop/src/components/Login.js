@@ -31,9 +31,9 @@ const Login = () => {
     setLoading(true);
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
-        const log = await  AuthService.login(username, password);
-        console.log(log.roles)
-        if(log.roles== 'ADMIN') {
+        const response = await  AuthService.login(username, password);
+        console.log(response.roles)
+        if(response.roles== 'ADMIN') {
          navigate("/");
         }
         else {
@@ -44,9 +44,6 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div style={{width: '-webkit-fill-available', position:"absolute", height: '100%', backgroundImage: 'url("./architecture-gris.jpg")',
-       backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', opacity:"30%"}}/>
       <div className="col-md-12">
         <div className="card card-container">
           <h3 style={{textAlign:"center", marginBottom:"20px"}}>Connectez-vous</h3>
@@ -91,7 +88,6 @@ const Login = () => {
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
         </Form>
       </div>
-    </div>
     </div>
   );
 };

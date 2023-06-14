@@ -71,9 +71,6 @@ const Register = (props) => {
   };
 
   return (
-    <div style={{height:"100vh"}}>
-      <div style={{width: '-webkit-fill-available', position:"absolute", height: '100%', backgroundImage: 'url("./architecture-gris.jpg")',
-      backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat',opacity:"30%"}}/>
       <div className="col-md-12">
         <div className="card card-container">
         <h3 style={{textAlign:"center", marginBottom:"20px"}}>Inscrivez-vous</h3>
@@ -140,7 +137,6 @@ const Register = (props) => {
           </Form>
         </div>
       </div>
-    </div>
   );
 };
 

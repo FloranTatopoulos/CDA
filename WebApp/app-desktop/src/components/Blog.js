@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import blogService from "../axios/blog.axios";
 import { Link } from "react-router-dom";
-import {format} from "date-fns";
+import axios from "axios";
 
 const Blog = () => {
 
@@ -9,7 +8,7 @@ const Blog = () => {
 
     useEffect(() => {       
         if(!posts){
-            blogService.read().then((value) => {
+            axios.get("http://localhost:8080/api/blog/readPost").then((value) => {
               setPosts(value.data.data);
             });
           }
@@ -22,6 +21,9 @@ const Blog = () => {
 
     return (
         <div>
+            <div className="header" style={{textAlign:'center'}}>
+            <h1 style={{justifyContent:'center'}}>Blog</h1>              
+            </div>
             <a href="/home">
                 <img className="back" src="./back.png" alt=""/>
               </a>
@@ -35,7 +37,7 @@ const Blog = () => {
                         <img src={post.image} style={{height:'25vh', width:'15vw'}} alt="" />
                         <p style={{fontWeight:'bold'}}>{getText(post.body)}</p>
                         <p className="author" style={{fontStyle:'italic'}}>Créé par {post.author}</p>
-                        <time>Le {format(new Date(post.createdAt), 'dd-mm-yyyy')}</time>
+                        <time>Le {new Date(post.createdAt).toLocaleDateString('fr')}</time>
                     </div>
                 </div>
                 ))}
