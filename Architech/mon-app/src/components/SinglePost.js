@@ -35,12 +35,12 @@ const SinglePost =() => {
           <Navbar></Navbar>
           <div style={{width: '-webkit-fill-available', position:"absolute", height: '90%', backgroundImage: 'url("../architecture-gris.jpg")',
           backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', opacity:"30%"}}/>
-          <div className="card single-blog" style={{textAlign:'center', justifyContent:'center'}}>
+          <div className="card single-blog" style={{textAlign:'center'}}>
             <div className="content">
-              <h1 style={{marginBottom:'20px'}}>{post.title}</h1>
-                <img src={post.image} style={{height:'60%', width:'80%'}} alt="" />
-
-              <h4 style={{fontWeight:'bold', marginTop:'30px'}}>{getText(post.body)}</h4>
+              <h1 style={{marginBottom:'20px'}}>{post.theme}</h1>
+                <img src={post.image} style={{height:'60%', width:'60%'}} alt="" />
+              <h4 style={{fontWeight:'bold'}}>{post.title}</h4>
+              <p style={{fontWeight:'bold', marginTop:'30px'}}>{getText(post.body)}</p>
               <h5 style={{fontStyle:'italic',  marginTop:'30px'}}>Créé par {post.author}</h5>
               <h5 style={{marginTop:'30px'}}>Le {new Date(post.createdAt).toLocaleDateString('fr')}</h5>
                 </div>

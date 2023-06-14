@@ -41,12 +41,18 @@ const SinglePost =() => {
           console.log(err);
         }
       }
+
+      const getText = (html) =>{
+        const doc = new DOMParser().parseFromString(html, "text/html")
+        return doc.body.textContent
+      }
+
     if(visible){
     return (
         <div className="post-page">
         <div className="card single-blog" style={{textAlign:'center', alignItems:'center'}}></div>
         <div className="contentblog">
-          <h1>{post.title}</h1>
+          <h1>{post.theme}</h1>
             {currentUser.username === post.author && (
                 <div className="edit-row">
                 <Link className="edit-btn" to={`/editPost/${post._id}`}>
@@ -59,9 +65,10 @@ const SinglePost =() => {
             )}
             <img src={post.image} style={{height:'60%', width:'80%'}} alt="" />
           </div>
-          <div className="content" dangerouslySetInnerHTML={{__html:post.body}} />
-          <p className="author" style={{fontStyle:'italic'}}>Créé par {post.author}</p>
-          <time>Le {new Date(post.createdAt).toLocaleDateString('fr')}</time>
+          <h4 style={{fontWeight:'bold'}}>{post.title}</h4>
+            <p style={{fontWeight:'bold', marginTop:'30px'}}>{getText(post.body)}</p>
+            <h5 style={{fontStyle:'italic',  marginTop:'30px'}}>Créé par {post.author}</h5>
+            <h5 style={{marginTop:'30px'}}>Le {new Date(post.createdAt).toLocaleDateString('fr')}</h5>
         </div>
       );
    }
