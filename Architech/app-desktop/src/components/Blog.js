@@ -16,16 +16,19 @@ const Blog = () => {
 
     return (
         <div>
-            <div className="header" style={{textAlign:'center'}}>
-            <h1 style={{justifyContent:'center'}}>Blog</h1>              
-            </div>
+            <header className="header" style={{display:'flex'}}>
             <a href="/home">
                 <img className="back" src="./back.png" alt=""/>
               </a>
+            <h1 style={{marginTop:'30px', textAlign:'center', flexGrow:1, }}>Blog</h1>
+            <a href="/createpost" style={{color:'black'}}>
+              <button className="btn btn-login" style={{marginRight:'20px'}}>Créer une publication</button>
+              </a>              
+              </header>
               <div className="posts">
                 {posts && posts.map((post) => (
                 <div className="card blog-card" style={{textAlign:'center', alignItems:'center'}} key={post._id}>
-                    <div className="content">
+                    <div className="contentblog">
                         <Link className="link" style={{color:'black', textDecoration:'none'}} to={`/singlePost/${post._id}`}>
                             <h3>{post.theme}</h3>
                         </Link>

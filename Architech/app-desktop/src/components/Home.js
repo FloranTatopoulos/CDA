@@ -45,8 +45,8 @@ const Home = () => {
                 <a href= "/blog" style={{color:'black', marginTop:'50px'}}>
                   <button className="btn btn-login">Consulter Blog</button>
                 </a>    
-              <a href="/boardadmin" style={{color:'black'}}>
-              <button className="btn btn-login">Consulter Board Admin</button>
+              <a href="/createpost" style={{color:'black'}}>
+              <button className="btn btn-login">Créer une publication</button>
               </a>
             </div>
           </div>
