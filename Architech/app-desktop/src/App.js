@@ -6,12 +6,11 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Blog from "./components/Blog";
-import BoardAdmin from "./components/BoardAdmin";
 import EditPost from "./components/EditPost";
 import SinglePost from "./components/SinglePost";
+import CreatePost from "./components/CreatePost";
 
 const App = () => {
-  
   return (
         <Routes>
           <Route exact path={"/"} element={<Home />} />
@@ -19,9 +18,9 @@ const App = () => {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path={"/blog"} element={<Blog />} />
-          <Route exact path={"/boardadmin"} element={<BoardAdmin />} />
-          <Route path="/post/:id" element={<SinglePost />} />
-          <Route path="/editPost/:id" element={<EditPost />} />
+          <Route exact path={"/createpost"} element={<CreatePost />} />
+          <Route path="/singlePost/:id" element={<SinglePost />} />
+          <Route path={"/editPost/:id"} element={<EditPost />} />
         </Routes>
   );
 }

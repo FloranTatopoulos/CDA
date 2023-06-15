@@ -1,6 +1,6 @@
 .content{
   width: 80% ;
-  height: 550px ;
+  height: 750px ;
   justify-content: center;
   align-items: center;
   background-color: rgb(190,190,190);;
@@ -30,6 +30,7 @@
   -moz-box-shadow: 0px 2px 2px rgba(108, 100, 100, 0.477);
   -webkit-box-shadow: 0px 2px 2px rgba(108, 100, 100, 0.477);
   box-shadow: 0px 2px 2px rgba(108, 100, 100, 0.477);
+  box-sizing: border-box;
 }
 
 .profile-img-card {
@@ -56,13 +57,20 @@ label {
 }
 
  .btn{
-  margin-top: 30px;
   background-color: rgb(190,190,190);
+  margin-top: 30px;
 }
 
 .btn-login{
+  
   width: 200px;
   height: 50px;
+}
+
+.edit-btn {
+  margin-top: 60px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 
@@ -93,9 +101,15 @@ label {
   border-radius: 10%;
 }
 
+.card-create {
+  max-width: 850px !important;
+   height: 620px !important;
+  border-radius: 10%;
+}
+
 .single-blog {
   max-width: 850px !important;
-   height: 800px !important;
+   height: 1100px !important;
   border-radius: 10%;
 }
 
@@ -113,4 +127,14 @@ label {
   float:'left';
   margin-left:10px;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 350px) {
+  .header{
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+    font-size: 80%;
+  }
 }
