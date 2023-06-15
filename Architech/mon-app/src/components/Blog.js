@@ -9,7 +9,7 @@ const Blog = () => {
 
     useEffect(() => {       
         if(!posts){
-            axios.get("http://localhost:8080/api/blog/readPost").then((value) => {
+            axios.get("https://api.architechcda.fr/api/blog/readPost").then((value) => {
               setPosts(value.data.data);
             });
           }

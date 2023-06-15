@@ -12,7 +12,7 @@ const SinglePost =() => {
     useEffect(() => {
         const fetchPost = async () => {
           try {
-            const response = await axios.get(`http://localhost:8080/api/blog/getPostById/${id}`); 
+            const response = await axios.get(`https://api.architechcda.fr/api/blog/getPostById/${id}`); 
             setPosts(response.data.data);
             isVisible(true);
           } catch (error) {

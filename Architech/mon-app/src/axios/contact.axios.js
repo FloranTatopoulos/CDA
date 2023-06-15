@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/contact/";
+const API_URL = "https://api.architechcda.fr/api/contact/";
 
 const contact = (nom, email, msg) => {
     return axios.post(API_URL + "contact", {
