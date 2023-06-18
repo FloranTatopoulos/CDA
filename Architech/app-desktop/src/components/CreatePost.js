@@ -83,7 +83,7 @@ const CreatePost = () => {
                       placeholder={'Titre'}
                       value={title}
                       onChange={e => setTitle(e.target.value)} />
-                  <input type="author"  style={{width: '100%', marginTop:'20px'}}
+                <input type="author"  style={{width: '100%', marginTop:'20px'}}
                       placeholder={'Nom du créateur'}
                       value={author}
                       onChange={e => setAuthor(e.target.value)} />

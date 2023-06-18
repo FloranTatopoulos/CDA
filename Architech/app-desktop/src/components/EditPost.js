@@ -10,8 +10,8 @@ const EditPost =() => {
     const [title, setTitle]= useState("");
     const [theme, setTheme] = useState("");
     const [image, setImage] = useState("");
+    const [author, setAuthor] = useState("");
     const [body, setBody] = useState("");
-    const [redirect,setRedirect] = useState(false);
     const navigate = useNavigate();
     const maxLength = 500;
 
@@ -22,6 +22,7 @@ const EditPost =() => {
           setTitle(postInfo.title);
           setImage(postInfo.image);
           setBody(postInfo.body);
+          setAuthor(postInfo.author);
           setTheme(postInfo.theme);
         })
         .catch(error => {
@@ -77,6 +78,10 @@ const EditPost =() => {
                       placeholder={'Titre'}
                       value={title}
                       onChange={e => setTitle(e.target.value)} />
+                <input type="author"  style={{width: '100%', marginTop:'20px'}}
+                      placeholder={'Nom du créateur'}
+                      value={author}
+                      onChange={e => setAuthor(e.target.value)} />
                 <textarea style={{width: '100%', height:'200px', marginTop:'20px'}}
                       placeholder="Description"
                       value={body}
