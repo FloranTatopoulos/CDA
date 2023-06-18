@@ -1,17 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import AuthService from "../axios/auth.axios";
 import axios from "axios";
 
 const SinglePost =() => {
     const [post,setPost] = useState({});
     const {id} = useParams();
-    const currentUser = AuthService.getCurrentUser();
     const navigate = useNavigate();
     const [visible, isVisible] = useState(false);
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token=user.token;
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -32,8 +31,6 @@ const SinglePost =() => {
 
     const deletePost = async ()=>{
         try {
-          const user = JSON.parse(localStorage.getItem("user"));
-          const token=user.token;
           await axios.delete(`http://localhost:8080/api/blog/deletePost/${id}`,
           {headers:{Authorization:`Bearer ${token}`}} );
           navigate("/blog")
@@ -62,7 +59,7 @@ const SinglePost =() => {
               <h5 style={{fontStyle:'italic',  marginTop:'30px'}}>Créé par {post.author}</h5>
               <h5 style={{marginTop:'30px'}}>Le {new Date(post.createdAt).toLocaleDateString('fr')}</h5>
             
-            {currentUser.username === post.author && (
+            {{headers:{Authorization:`Bearer ${token}`}}  && (
                   <div className="edit-row">
                     <button className="btn edit-btn">
                       <a href={`/editPost/${post._id}`} style={{textDecoration:'none', color:'black'}}>
