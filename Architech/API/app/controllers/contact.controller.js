@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv')
+dotenv.config();
 
 exports.contact = (req, res) => {
     const data = req.body;
@@ -6,7 +8,7 @@ exports.contact = (req, res) => {
       service: 'gmail',
       auth: {
         user:'floran.tato@gmail.com',
-        pass:'kvkysrjitjqtkhfc'
+        pass: process.env.NODEMAILERPASS,
       }
 
     })
