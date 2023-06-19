@@ -3,7 +3,7 @@ const blogService = require("../services/blog.services");
 exports.readPost = async (req, res) => {
   try {
     const blogs = await blogService.getAllBlogs();
-    res.json({ data: blogs, status: "Post affiché" });
+    res.json({ data: blogs, status: "Posts affichés" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -12,7 +12,7 @@ exports.readPost = async (req, res) => {
 exports.getPostById = async (req, res) => {
   try {
     const blog = await blogService.getBlogById(req.params.id);
-    res.json({ data: blog, status: "success" });
+    res.json({ data: blog, status: "Post affiché" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
