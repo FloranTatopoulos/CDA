@@ -1,6 +1,5 @@
 import React from "react";
 import { useState,useEffect } from "react";
-import EventBus from "../common/EventBus";
 import AuthService from "../axios/auth.axios";
 
 const Home = () => {
@@ -13,15 +12,6 @@ const Home = () => {
       //l'utilisateur est administrateur 
       setShowAdminBoard(currentUser.roles.includes("ADMIN"));
     }
-
-    EventBus.on("logout", () => {
-      logOut();
-    });
-
-    return () => {
-      EventBus.remove("logout");
-    };
-
   }, []);
 
   const logOut = () => {
