@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import EventBus from "../common/EventBus";
 import AuthService from "../axios/auth.axios";
 
 const Navbar = (props) => {
@@ -12,17 +11,7 @@ const Navbar = (props) => {
     if (user) {
       setCurrentUser(user);
     }
-
-    EventBus.on("logout", () => {
-      logOut();
-    });
-
-    return () => {
-      EventBus.remove("logout");
-    };
-
   }, []);
-
 
   const logOut = () => {
     AuthService.logout();
