@@ -14,15 +14,19 @@ const Stack = createStackNavigator();
 const App = () => {
   
   return (
+    //conteneur racine pour la gestion de navigation
     <NavigationContainer>
+      {/*navigation par pile*/}
       <Stack.Navigator
+        //route initiale
         initialRouteName="Home"
+        //configuration des en-têtes des écrans 
         screenOptions={{
           headerMode: 'screen',
           headerTintColor: 'black',
           headerStyle: { backgroundColor: 'white'},
-        }}
-      >
+        }}>
+        {/** un seul ecran (page d'accueil)*/}
         <Stack.Screen
           name="Accueil"
           component={Home}

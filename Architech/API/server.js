@@ -3,7 +3,9 @@ const cookieSession = require("cookie-session");
 const dotenv = require('dotenv')
 dotenv.config();
 
+//définition du framework express
 const app = express();
+//definition des cors (sécurité pour contrôler les requêtes d'un domaine vers un autre)
 var cors = require('cors');
 app.use(cors());
 
@@ -18,6 +20,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+//définition de la session
 app.use(
   cookieSession({
     name: "architech-session",
@@ -26,10 +29,12 @@ app.use(
   })
 );
 
+//appel a la collection Role
 const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
+//connexion a Mongoose lors du lancement de l'API
   .connect(process.env.MONGOURL)
   .then(() => {
     console.log("Successfully connect to MongoDB.");
@@ -44,12 +49,13 @@ db.mongoose
     res.json({ message: "Bienvenue sur ArchiTech !" });
   });
   
-  // routes
+  //définition des routes
   require("./app/routes/auth.routes")(app);
   require("./app/routes/user.routes")(app);
   require("./app/routes/contact.routes")(app);
   require("./app/routes/blog.routes")(app);
   
+  //définition du port sur lequel le serveur tourne
   const PORT = process.env.PORT || 8080;
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
@@ -58,6 +64,7 @@ db.mongoose
   function initial() {
     Role.estimatedDocumentCount((err, count) => {
       if (!err && count === 0) {
+        //ajoute des nouveaux roles dans la collection Role
         new Role({
           name: "user"
         }).save(err => {
@@ -67,7 +74,6 @@ db.mongoose
   
           console.log("role 'user' ajouté dans la table role");
         });
-
         new Role({
           name: "admin"
         }).save(err => {

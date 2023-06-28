@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const blogSchema = mongoose.model(
+  //créé une collection mongoDB nommée Blog
   "Blog",
   new mongoose.Schema({
     theme: String,
@@ -10,6 +11,7 @@ const blogSchema = mongoose.model(
     body: String,
   },
   {
+    //date de création et de modification
     timestamps: true,
   })
 );
