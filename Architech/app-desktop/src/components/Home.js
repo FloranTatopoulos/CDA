@@ -6,10 +6,12 @@ import AuthService from "../axios/auth.axios";
 const Home = () => {
 
   const [showAdminBoard, setShowAdminBoard] = useState(false);
+  //appel a l'utilisateur connecté
+  const currentUser = AuthService.getCurrentUser();
   useEffect(() => {
-    const user = AuthService.getCurrentUser();
-    if (user) {
-      setShowAdminBoard(user.roles.includes("ADMIN"));
+    if (currentUser) {
+      //l'utilisateur est administrateur 
+      setShowAdminBoard(currentUser.roles.includes("ADMIN"));
     }
 
     EventBus.on("logout", () => {
@@ -26,12 +28,12 @@ const Home = () => {
     AuthService.logout();
     setShowAdminBoard(undefined);
   };
-
-  const currentUser = AuthService.getCurrentUser();
+  
 
   return (
       <div>
-          {showAdminBoard ? (
+          {/**affichage uniquement coté adminstrateur*/
+          showAdminBoard ? (
           <div>
             <div style={{textAlign:'center'}}>
             <img className="architech" src="./Logo_long.png" style={{width:'30vw', marginTop:'20px',marginBottom:'30px'}} alt="" />

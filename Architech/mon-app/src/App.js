@@ -13,8 +13,10 @@ import SinglePost from "./components/SinglePost";
 const App = () => {
   
   return (
+        //définition de toutes les routes du site web
         <Routes>
-          <Route exact path={"/"} element={<Home />} />
+          {/*appel au chemin et au composant correspondant */}
+          <Route exact path={"/"} element={<Home />} /> 
           <Route exact path={"/home"} element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />

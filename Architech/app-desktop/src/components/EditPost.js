@@ -18,6 +18,7 @@ const EditPost =() => {
     useEffect(() => {
       axios.get(`http://localhost:8080/api/blog/getPostById/${id}`)
         .then(response => {
+          //remplissage automatiques des champs avec données actuelles du post
           const postInfo = response.data.data;
           setTitle(postInfo.title);
           setImage(postInfo.image);

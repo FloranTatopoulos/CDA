@@ -34,6 +34,7 @@ const CreatePost = () => {
   }, []);
 
   const maxChar = (e) => {
+    //limite de caracteres
     if (e.target.value.length <= maxLength) {
       setBody(e.target.value);
     }
@@ -41,18 +42,21 @@ const CreatePost = () => {
 
   const createNewPost = async (e) => {
     e.preventDefault();
+    //message d'erreur si tous les champs ne sont pas remplis
     if (!theme || !image || !title || !body || !author) {
       alert("Veuillez remplir tous les champs");
       setLoading(false);
       return;
     }
     try {
+      //définition du token de l'utilisateur connecté
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user.token;
       await axios.post(
         "http://localhost:8080/api/blog/createPost",
         { theme, image,title, author,body },
-        { headers: { Authorization: `Bearer ${token}` } }
+        {/*affectation du token admin dans l'en-tête d'autorisation */ 
+          headers: { Authorization: `Bearer ${token}` } }
       );
       navigate("/blog");
     } catch (error) {
@@ -69,6 +73,7 @@ const CreatePost = () => {
         </div>
         <div className="container">
         <div className="card card-create" >
+        {/**formulaire de création de post */}
         <Form onSubmit={createNewPost} style={{textAlign:'center'}}>
         <h2 style={{textAlign:'center'}}>Nouvelle publication</h2>
               <input type="theme"  style={{width: '100%', marginTop:'20px'}}
@@ -92,7 +97,9 @@ const CreatePost = () => {
                       value={body}
                       onChange={maxChar}
                       />
-               <p style={{fontStyle:'italic'}}>{maxLength - body.length} caractères restants</p>
+               <p style={{fontStyle:'italic'}}>
+                {/**affichage du nb de caracteres restants */
+                maxLength - body.length} caractères restants</p>
             <button className="btn" style={{width:"20%"}}>
                     <span className="btn-login">Créer</span>
               </button>

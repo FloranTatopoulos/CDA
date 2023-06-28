@@ -29,6 +29,7 @@ const SinglePost =() => {
       useEffect(() => {
       }, [post])
 
+      //suppression du post
     const deletePost = async ()=>{
         try {
           await axios.delete(`http://localhost:8080/api/blog/deletePost/${id}`,
@@ -59,7 +60,8 @@ const SinglePost =() => {
               <h5 style={{fontStyle:'italic',  marginTop:'30px'}}>Créé par {post.author}</h5>
               <h5 style={{marginTop:'30px'}}>Le {new Date(post.createdAt).toLocaleDateString('fr')}</h5>
             
-            {{headers:{Authorization:`Bearer ${token}`}}  && (
+            {/**seul l'auteur d'un post peut le modifier ou supprimer */
+             {headers:{Authorization:`Bearer ${token}`}}  && (
                   <div className="edit-row">
                     <button className="btn edit-btn">
                       <a href={`/editPost/${post._id}`} style={{textDecoration:'none', color:'black'}}>
