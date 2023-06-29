@@ -41,8 +41,6 @@ const SinglePost =() => {
                 <img src={post.image} style={{height:'60%', width:'60%'}} alt="" />
               <h4 style={{fontWeight:'bold'}}>{post.title}</h4>
               <p style={{fontWeight:'bold', marginTop:'30px'}}>{getText(post.body)}</p>
-              <h5 style={{fontStyle:'italic',  marginTop:'30px'}}>Créé par {post.author}</h5>
-              <h5 style={{marginTop:'30px'}}>Le {new Date(post.createdAt).toLocaleDateString('fr')}</h5>
                 </div>
             </div>
           </div>

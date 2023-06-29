@@ -56,9 +56,7 @@ const SinglePost =() => {
             <h1>{post.theme}</h1>
               <img src={post.image} style={{height:'60%', width:'80%'}} alt="" />
             <h4 style={{fontWeight:'bold',  marginTop:'30px'}}>{post.title}</h4>
-              <p style={{fontWeight:'bold', marginTop:'30px'}}>{getText(post.body)}</p>
-              <h5 style={{fontStyle:'italic',  marginTop:'30px'}}>Créé par {post.author}</h5>
-              <h5 style={{marginTop:'30px'}}>Le {new Date(post.createdAt).toLocaleDateString('fr')}</h5>
+              <p style={{ marginTop:'30px'}}>{getText(post.body)}</p>
             
             {/**seul l'auteur d'un post peut le modifier ou supprimer */
              {headers:{Authorization:`Bearer ${token}`}}  && (

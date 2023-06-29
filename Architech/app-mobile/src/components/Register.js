@@ -47,7 +47,7 @@ const Register = () => {
         setUsername("");
         setEmail("");
         setPassword("");
-        navigation.replace("Blog");        
+        navigation.replace("Login");        
       })
       .catch((error) => {
         const resMessage =
