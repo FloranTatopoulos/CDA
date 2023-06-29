@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -45,9 +45,9 @@ const Login = () => {
 
   return (
       <div className="col-md-12">
-        <div className="card card-container">
-          <h3 style={{textAlign:"center", marginBottom:"20px"}}>Connectez-vous</h3>
-
+        <div className="card card-container" style={{alignItems:"center", textAlign:"center"}}>
+          <h3 style={{marginBottom:"20px"}}>Connectez-vous</h3>
+          <img src="./Logo_Unique.png" style={{width:'50%'}} alt=""/>
         <Form onSubmit={handleLogin} ref={form}>
           <div className="form-group">
             <label htmlFor="username">Nom d'utilisateur</label>
@@ -78,6 +78,7 @@ const Login = () => {
               <span className="btn-login">Se connecter</span>
             </button>
           </div>
+          <p style={{marginTop:'20px'}}>Vous n'avez pas encore de compte ? <Link to={"../register"}>Inscrivez vous</Link></p>
           {message && (
             <div className="form-group">
               <div className="alert alert-danger" role="alert">

@@ -4,6 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../axios/auth.axios";
+import { Link } from "react-router-dom";
 
 const required = (value) => {
   if (!value) {
@@ -72,8 +73,9 @@ const Register = (props) => {
 
   return (
       <div className="col-md-12">
-        <div className="card card-container">
+        <div className="card card-container" style={{textAlign:"center", alignItems:"center"}}>
         <h3 style={{textAlign:"center", marginBottom:"20px"}}>Inscrivez-vous</h3>
+        <img src="./Logo_Unique.png" style={{width:'50%'}} alt=""/>
           <Form onSubmit={handleRegister} ref={form}>
             {!successful && (
               <div>
@@ -118,6 +120,7 @@ const Register = (props) => {
                     <span className="btn-login">S'inscrire</span>
                     </button>
                 </div>
+                <p style={{marginTop:'20px'}}>Vous avez deja un compte ? <Link to={"../login"}>Connectez vous</Link></p>
               </div>
             )}
 

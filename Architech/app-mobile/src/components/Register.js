@@ -89,8 +89,10 @@ const Register = () => {
             onChangeText={setPassword}
             secureTextEntry
           />
-      <Pressable style={styles.buttonRegister} onPress={handleRegister}>
-      <Text>S'inscrire</Text></Pressable>
+        <Pressable style={styles.buttonRegister} onPress={handleRegister}>
+        <Text>S'inscrire</Text></Pressable>
+        <Text>Vous avez deja un compte ? <Pressable onPress={() => 
+                  navigation.replace('Login')}><Text>Connectez vous</Text></Pressable></Text>
       </View>
     </View>
   );
@@ -121,14 +123,15 @@ const styles = StyleSheet.create({
   cardAuth:{
     marginTop:20,
     width: 270,
-    height: 350,
+    height: 430,
     borderRadius:30,
     backgroundColor: 'rgb(200,200,200)',
     alignItems: 'center',
-    justifyContent:'center'
+    justifyContent:'center',
 },
   buttonRegister: {
     marginTop:50,
+    marginBottom:20,
     alignItems: 'center',
     justifyContent: 'center',
     height:50,

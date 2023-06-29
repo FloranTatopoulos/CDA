@@ -6,7 +6,6 @@ import Home from './src/components/Home';
 import Welcome from './src/components/Welcome';
 import Login from './src/components/Login';
 import Register from './src/components/Register';
-import Profile from './src/components/Profile';
 import Blog from './src/components/Blog';
 
 const Stack = createStackNavigator();
@@ -50,13 +49,6 @@ const App = () => {
           component={Register}
           options={{
             title: `Inscription`,
-          }}
-        />
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            title: 'Mon profil',
           }}
         />
         <Stack.Screen
