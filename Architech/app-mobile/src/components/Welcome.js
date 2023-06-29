@@ -22,7 +22,7 @@ const Welcome = () => {
     const handleLogout = async () => {
       try {
         await AsyncStorage.removeItem('username');
-        navigation.replace('Login')
+        navigation.replace('Accueil')
         console.log('Vous avez bien été déconnecté');
       } catch (error) {
         console.log('Error logging out: ', error);
@@ -32,9 +32,6 @@ const Welcome = () => {
     return (
         <View style={styles.container} >
             <View style={styles.header}> 
-                <Pressable onPress={() =>navigation.navigate('Profile')}>
-                <Image style={styles.profileimg} source={require('../../assets/profil.jpg')} />
-                </Pressable>
                 <Pressable onPress={handleLogout}>
                 <Image style={styles.logout} source={require('../../assets/logout.jpg')} />
                 </Pressable>
@@ -60,17 +57,8 @@ const styles = StyleSheet.create({
         flex: 1,    
         backgroundColor:'white',
       },
-      header:{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      },
-      profileimg:{
-        width: 50, height: 50,
-        marginLeft: 10,          
-    },
     logout:{
-        width: 50, height: 50,        
+        width: 50, height: 50,       
     },
     content:{
         alignItems: 'center',

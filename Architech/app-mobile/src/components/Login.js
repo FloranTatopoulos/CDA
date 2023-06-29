@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useRef } from 'react';
 import { View, TextInput, Pressable, StyleSheet, Text, Image, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Link, useNavigation } from '@react-navigation/native';
 import AuthService from "../axios/auth.axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -68,6 +68,8 @@ const Login = () => {
         />
       <Pressable style={styles.buttonLogin} onPress={handleLogin}>
       <Text>Se Connecter</Text></Pressable>
+      <Text>Vous n'avez pas encore de compte ? <Pressable onPress={() => 
+                navigation.replace('Register')}><Text>Inscrivez vous</Text></Pressable></Text>
       {message === 404 ?
        <Text> Utilisateur introuvable</Text>
         : message === 401 ? 
@@ -84,6 +86,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop:50,
     backgroundColor:'white',
+    textAlign:'center',
   },
   logo :{
     width:210,
@@ -102,14 +105,16 @@ const styles = StyleSheet.create({
   cardAuth:{
     marginTop:20,
     width: 270,
-    height: 300,
+    height: 350,
     borderRadius:30,
     backgroundColor: 'rgb(200,200,200)',
     alignItems: 'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    
 },
   buttonLogin: {
     marginTop:50,
+    marginBottom:20,
     alignItems: 'center',
     justifyContent: 'center',
     height:50,
