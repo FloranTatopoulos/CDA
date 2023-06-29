@@ -27,7 +27,7 @@ const Blog = () =>{
                         <Text style={{fontWeight:'bold', marginBottom:30}}>
                             {post.title}
                         </Text>
-                        <Text style={{color:'black', fontSize:15, textAlign:'center'}}>
+                        <Text style={{color:'black', fontSize:12, textAlign:'center'}}>
                             {post.body}
                         </Text>
                         <Text style={{fontStyle:'italic', marginTop:20}}>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     postCard:{
         marginTop:20,
         width: 350,
-        height: 700,
+        height: 750,
         borderRadius:30,
         backgroundColor: 'rgb(230,230,230)',
         alignItems: 'center',        
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         marginTop:20,
         marginBottom:20,
         width:'100%',
-        height:'40%'
+        height:'30%'
     }
 });
 

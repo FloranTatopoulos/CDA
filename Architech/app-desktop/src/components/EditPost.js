@@ -13,7 +13,7 @@ const EditPost =() => {
     const [author, setAuthor] = useState("");
     const [body, setBody] = useState("");
     const navigate = useNavigate();
-    const maxLength = 500;
+    const maxLength = 1000;
 
     useEffect(() => {
       axios.get(`http://localhost:8080/api/blog/getPostById/${id}`)

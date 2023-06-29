@@ -13,7 +13,7 @@ const CreatePost = () => {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const maxLength = 500;
+  const maxLength = 1000;
 
   useEffect(() => {
     UserService.getAdminBoard().then(
